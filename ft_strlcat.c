@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 12:43:34 by gpecci            #+#    #+#             */
-/*   Updated: 2023/01/19 15:17:53 by gpecci           ###   ########.fr       */
+/*   Created: 2023/01/19 16:47:20 by gpecci            #+#    #+#             */
+/*   Updated: 2023/01/19 17:39:40 by gpecci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft.h""
 
-void	ft_bzero(void *s, size_t n)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
-	char	*tmp;
+	size_t	j;
+	size_t	src_len;
 
-	tmp = (char *) s;
-	if (n == 0)
-		return ;
-	while (i < n)
+	i = 0;
+	j = dstsize;
+	src_len = ft_strlen(src);
+	if (dstsize == 0)
 	{
-		tmp[i] = 0;
-		i++;
+
 	}
-	return ;
-}

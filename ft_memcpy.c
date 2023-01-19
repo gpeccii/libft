@@ -6,11 +6,11 @@
 /*   By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 12:50:50 by gpecci            #+#    #+#             */
-/*   Updated: 2023/01/19 14:45:19 by gpecci           ###   ########.fr       */
+/*   Updated: 2023/01/19 15:17:42 by gpecci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
