@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 15:15:45 by gpecci            #+#    #+#             */
-/*   Updated: 2023/01/20 15:50:15 by gpecci           ###   ########.fr       */
+/*   Created: 2023/01/20 17:25:35 by gpecci            #+#    #+#             */
+/*   Updated: 2023/01/20 17:33:43 by gpecci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+int	ft_atoi(const char *str)
 {
-	unsigned char		*tmp_dst;
-	unsigned char		*tmp_src;
-	size_t				i;
+	int	i;
+	int	sign;
+	int	result;
 
 	i = 0;
-	tmp_dst = (unsigned char *) dst;
-	tmp_src = (unsigned const char *) src;
-	if (dst < src)
+	while ((str[i] > 9 && str[i] < 13) || (str[i] == 32))
+		i++;
+	sign = 1;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		while (i < len)
-		{
-			((char *) dst)[i] = ((const char *) src)[i];
-			i++;
-		}
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
 	}
-	else
+	result = 0;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		while (len--)
-			tmp_dst[len] = tmp_src[len];
+		result *= 10;
+		result += str[i] - '0';
+		i++;
 	}
-	return ((void *) dst);
+	return (result * sign);
 }

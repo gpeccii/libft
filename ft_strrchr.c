@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 15:15:45 by gpecci            #+#    #+#             */
-/*   Updated: 2023/01/20 15:50:15 by gpecci           ###   ########.fr       */
+/*   Created: 2023/01/20 15:52:48 by gpecci            #+#    #+#             */
+/*   Updated: 2023/01/20 16:25:26 by gpecci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strrchr(const char *s, int c)
 {
-	unsigned char		*tmp_dst;
-	unsigned char		*tmp_src;
-	size_t				i;
+	size_t	i;
 
 	i = 0;
-	tmp_dst = (unsigned char *) dst;
-	tmp_src = (unsigned const char *) src;
-	if (dst < src)
+	while(s[i])
+		i++;
+	while (i >= 0)
 	{
-		while (i < len)
-		{
-			((char *) dst)[i] = ((const char *) src)[i];
-			i++;
-		}
+		if (s[i] == (char) c)
+			return ((char *)(s + i));
+		i--;
 	}
-	else
-	{
-		while (len--)
-			tmp_dst[len] = tmp_src[len];
-	}
-	return ((void *) dst);
+	return (NULL);
 }

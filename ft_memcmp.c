@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 15:15:45 by gpecci            #+#    #+#             */
-/*   Updated: 2023/01/20 15:50:15 by gpecci           ###   ########.fr       */
+/*   Created: 2023/01/20 16:40:59 by gpecci            #+#    #+#             */
+/*   Updated: 2023/01/20 16:48:28 by gpecci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char		*tmp_dst;
-	unsigned char		*tmp_src;
-	size_t				i;
+	size_t	i;
+	unsigned char	*temp_s1;
+	unsigned char	*temp_s2;
 
 	i = 0;
-	tmp_dst = (unsigned char *) dst;
-	tmp_src = (unsigned const char *) src;
-	if (dst < src)
+	temp_s1 = (unsigned char *) s1;
+	temp_s2 = (unsigned char *) s2;
+	while (i < n)
 	{
-		while (i < len)
-		{
-			((char *) dst)[i] = ((const char *) src)[i];
-			i++;
-		}
+		if (*(temp_s1 + i) != *(temp_s2 + i))
+			return (*(temp_s1 + i) - *(temp_s2 + i));
+		i++;
 	}
-	else
-	{
-		while (len--)
-			tmp_dst[len] = tmp_src[len];
-	}
-	return ((void *) dst);
+	return (0);
 }
