@@ -6,7 +6,7 @@
 /*   By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 14:56:38 by gpecci            #+#    #+#             */
-/*   Updated: 2023/01/21 17:44:15 by gpecci           ###   ########.fr       */
+/*   Updated: 2023/01/21 17:48:05 by gpecci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	j;
 	char	*str;
 
-	if (s == NULL || start >= ft_strlen(s))
+	if (!s)
 		return (NULL);
 	if (len > ft_strlen(s))
 		len = ft_strlen(s);
-	str = (char *)malloc(sizeof(*s) * (len + 1));
+	str = (char *) malloc(sizeof(*s) * (len + 1));
 	if (!str)
 		return (NULL);
 	i = 0;
