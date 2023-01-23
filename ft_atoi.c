@@ -6,7 +6,7 @@
 /*   By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:25:35 by gpecci            #+#    #+#             */
-/*   Updated: 2023/01/20 17:33:43 by gpecci           ###   ########.fr       */
+/*   Updated: 2023/01/23 14:49:05 by gpecci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_atoi(const char *str)
 	int	result;
 
 	i = 0;
-	while ((str[i] > 9 && str[i] < 13) || (str[i] == 32))
+	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == 32))
 		i++;
 	sign = 1;
 	if (str[i] == '-' || str[i] == '+')
@@ -31,8 +31,8 @@ int	ft_atoi(const char *str)
 	result = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		result *= 10;
-		result += str[i] - '0';
+		result = result * 10;
+		result = result + str[i] - '0';
 		i++;
 	}
 	return (result * sign);

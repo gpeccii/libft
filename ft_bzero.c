@@ -6,7 +6,7 @@
 /*   By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 12:43:34 by gpecci            #+#    #+#             */
-/*   Updated: 2023/01/19 15:17:53 by gpecci           ###   ########.fr       */
+/*   Updated: 2023/01/23 14:15:13 by gpecci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ft_bzero(void *s, size_t n)
 	size_t	i;
 	char	*tmp;
 
+	i = 0;
 	tmp = (char *) s;
 	if (n == 0)
 		return ;

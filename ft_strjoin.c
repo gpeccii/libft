@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/20 16:05:20 by gpecci            #+#    #+#             */
-/*   Updated: 2023/01/23 14:57:22 by gpecci           ###   ########.fr       */
+/*   Created: 2023/01/23 13:25:28 by gpecci            #+#    #+#             */
+/*   Updated: 2023/01/23 13:32:43 by gpecci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t			i;
-	unsigned char	*tmp_s1;
-	unsigned char	*tmp_s2;
+	size_t	i;
+	size_t	j;
+	char	*str;
 
+	if (!s1 || !s2)
+		return (NULL);
+	str = malloc (sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!str)
+		return (NULL);
 	i = 0;
-	tmp_s1 = (unsigned char *)s1;
-	tmp_s2 = (unsigned char *)s2;
-	if (!n)
-		return (0);
-	while (i < n && tmp_s1[i] && tmp_s2[i])
-	{
-		if (tmp_s1[i] != tmp_s2[i])
-			return (tmp_s1[i] - tmp_s2[i]);
-		i++;
-	}
-	return (0);
+	j = 0;
+	while (s1[i])
+		str[j++] = s1[i++];
+	i = 0;
+	while (s2[i])
+		str[j++] = s2[i++];
+	str[j] = 0;
+	return (str);
 }

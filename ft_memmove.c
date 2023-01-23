@@ -6,7 +6,7 @@
 /*   By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 15:15:45 by gpecci            #+#    #+#             */
-/*   Updated: 2023/01/20 15:50:15 by gpecci           ###   ########.fr       */
+/*   Updated: 2023/01/23 14:44:06 by gpecci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 	i = 0;
 	tmp_dst = (unsigned char *) dst;
-	tmp_src = (unsigned const char *) src;
+	tmp_src = (unsigned char *) src;
+	if (!dst && !src)
+		return (dst);
 	if (dst < src)
 	{
 		while (i < len)

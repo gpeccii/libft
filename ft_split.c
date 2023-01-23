@@ -6,7 +6,7 @@
 /*   By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 16:03:29 by gpecci            #+#    #+#             */
-/*   Updated: 2023/01/23 13:15:36 by gpecci           ###   ########.fr       */
+/*   Updated: 2023/01/23 14:28:43 by gpecci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_counter(const char *s, char c)
 	size_t	i;
 	size_t	count;
 
+	count = 0;
+	i = 0;
 	while (s[i] == c)
 		i++;
 	while (s[i])
