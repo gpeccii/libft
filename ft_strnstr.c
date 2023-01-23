@@ -6,7 +6,7 @@
 /*   By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:14:14 by gpecci            #+#    #+#             */
-/*   Updated: 2023/01/20 17:25:11 by gpecci           ###   ########.fr       */
+/*   Updated: 2023/01/23 16:53:50 by gpecci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	j;
 
 	i = 0;
-	if (*needle == '\0' || needle == NULL)
+	if (*needle == '\0' || needle == NULL || len == 0)
 		return ((char *) haystack);
 	while (haystack[i] != '\0' && i < len)
 	{
 		j = 0;
-		while (haystack[i + j] == needle[j] && i + j < len)
+		while (needle[j] == haystack[i + j] && i + j < len)
 		{
 			if (needle[j + 1] == '\0')
 				return ((char *)haystack + i);

@@ -6,7 +6,7 @@
 /*   By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 16:47:20 by gpecci            #+#    #+#             */
-/*   Updated: 2023/01/20 15:49:54 by gpecci           ###   ########.fr       */
+/*   Updated: 2023/01/23 17:51:16 by gpecci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,19 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	j;
-	size_t	dst_len;
 
+	if ((!src && !dst) || dstsize == 0)
+		return (0);
 	i = 0;
-	dst_len = ft_strlen(dst);
-	j = dst_len;
-	if (dstsize == 0)
-		return (dst_len + ft_strlen(src));
-	while (i < (dstsize - dst_len - 1))
+	j = 0;
+	while (dst[j] && j < dstsize)
+		j++;
+	while ((i + j + 1) < dstsize && src[i])
 	{
 		dst[i + j] = src[i];
 		i++;
 	}
-	dst[i + j] = 0;
-	return (dst_len + ft_strlen(src));
+	if (j != dstsize)
+		dst[i + j] = '\0';
+	return (j + ft_strlen(src));
 }
