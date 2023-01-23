@@ -6,7 +6,7 @@
 /*   By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:32:12 by gpecci            #+#    #+#             */
-/*   Updated: 2023/01/23 16:55:39 by gpecci           ###   ########.fr       */
+/*   Updated: 2023/01/23 18:27:39 by gpecci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		i;
 	char	*result;
 
-	if (!s1 || !set )
+	if (!s1 || !set)
 		return (NULL);
 	start = 0;
 	end = ft_strlen(s1) - 1;
