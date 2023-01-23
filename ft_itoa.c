@@ -6,44 +6,54 @@
 /*   By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:20:04 by gpecci            #+#    #+#             */
-/*   Updated: 2023/01/23 18:42:45 by gpecci           ###   ########.fr       */
+/*   Updated: 2023/01/23 19:58:21 by gpecci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lenght(int nb)
+size_t	ft_lenght(long nb)
 {
-	int	count;
+	size_t	count;
 
 	count = 0;
 	if (nb <= 0)
+	{
 		count++;
-	while (nb && count++)
+		nb = -nb;
+	}
+	while (nb > 0)
+	{
 		nb = nb / 10;
+		count++;
+	}
 	return (count);
 }
 
 char	*ft_itoa(int n)
 {
 	char	*result;
-	int		c;
+	size_t	c;
+	long	nbr;
 
-	c = ft_lenght(n);
-	result = malloc(sizeof(char) * c);
+	nbr = n;
+	c = ft_lenght(nbr);
+	result = (char *)malloc(c + 1);
 	if (!result)
-		return (0);
-	if (n == 0)
-		result[c] = '0';
-	if (n < 0)
+		return (NULL);
+	result[c--] = '\0';
+	if (nbr < 0)
 	{
 		result[0] = '-';
-		n = - n;
+		nbr = -nbr;
 	}
-	while (n)
+	while (nbr >= 10)
 	{
-		n = n % 10;
-		result[c--] = 'n';
+		result[c] = 48 + (nbr % 10);
+		nbr = nbr / 10;
+		c--;
 	}
+	if (nbr >= 0 && nbr < 10)
+		result[c] = 48 + nbr;
 	return (result);
 }
