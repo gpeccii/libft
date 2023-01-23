@@ -6,7 +6,7 @@
 /*   By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 14:46:31 by gpecci            #+#    #+#             */
-/*   Updated: 2023/01/21 14:51:41 by gpecci           ###   ########.fr       */
+/*   Updated: 2023/01/23 13:15:50 by gpecci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strdup(const char *s1)
 	if (!tmp_s1)
 		return (NULL);
 	i = 0;
-	while(s1[i])
+	while (s1[i])
 	{
 		tmp_s1[i] = s1[i];
 		i++;

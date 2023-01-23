@@ -6,7 +6,7 @@
 /*   By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 16:03:29 by gpecci            #+#    #+#             */
-/*   Updated: 2023/01/21 17:41:56 by gpecci           ###   ########.fr       */
+/*   Updated: 2023/01/23 13:15:36 by gpecci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ size_t	ft_counter(const char *s, char c)
 		if (s[i] == c && s[i + 1] != c)
 			count++;
 		if (s[i] == c && s[i + 1] == '\0')
-			break;
+			break ;
 		i++;
 	}
 	return (count);
@@ -47,11 +47,8 @@ char	**ft_split(char const *s, char c)
 		if (*s != c)
 		{
 			j = 0;
-			while (*s && *s != c)
-			{
+			while (*s && *s != c && ++j)
 				++s;
-				++j;
-			}
 			matrix[i++] = ft_substr(s - j, 0, j);
 		}
 		else

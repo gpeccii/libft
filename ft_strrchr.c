@@ -6,7 +6,7 @@
 /*   By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 15:52:48 by gpecci            #+#    #+#             */
-/*   Updated: 2023/01/20 16:25:26 by gpecci           ###   ########.fr       */
+/*   Updated: 2023/01/23 13:16:07 by gpecci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strrchr(const char *s, int c)
 	size_t	i;
 
 	i = 0;
-	while(s[i])
+	while (s[i])
 		i++;
 	while (i >= 0)
 	{

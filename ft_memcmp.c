@@ -6,7 +6,7 @@
 /*   By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 16:40:59 by gpecci            #+#    #+#             */
-/*   Updated: 2023/01/20 16:48:28 by gpecci           ###   ########.fr       */
+/*   Updated: 2023/01/23 13:14:24 by gpecci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	i;
+	size_t			i;
 	unsigned char	*temp_s1;
 	unsigned char	*temp_s2;
 

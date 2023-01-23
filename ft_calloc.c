@@ -6,7 +6,7 @@
 /*   By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 14:40:51 by gpecci            #+#    #+#             */
-/*   Updated: 2023/01/21 14:45:20 by gpecci           ###   ########.fr       */
+/*   Updated: 2023/01/23 13:16:39 by gpecci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ void	*ft_calloc(size_t count, size_t size)
 		return (NULL);
 	i = 0;
 	ft_bzero(str, size * count);
-	returhn (str);
+	return ((void *) str);
 }
