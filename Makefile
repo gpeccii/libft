@@ -6,7 +6,7 @@
 #    By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/19 15:33:42 by gpecci            #+#    #+#              #
-#    Updated: 2023/01/24 00:12:02 by gpecci           ###   ########.fr        #
+#    Updated: 2023/01/24 01:00:20 by gpecci           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ RM = rm
 CFLAGS = -Wall -Wextra -Werror
 
 .c.o:
-	${CC} ${CFLAGS} -c ${SRCS}
+	${CC} ${CFLAGS} -g -c $< -o ${<:.c=.o}
 
 $(NAME): ${OBJS}
 		ar rcs ${NAME} ${OBJS}
@@ -39,3 +39,7 @@ clean:
 
 fclean:
 	${RM} ${NAME} ${OBJS}
+
+re: fclean all
+
+.PHONY: all clean fclean re
