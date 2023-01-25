@@ -6,38 +6,49 @@
 /*   By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 23:45:42 by gpecci            #+#    #+#             */
-/*   Updated: 2023/01/24 23:59:00 by gpecci           ###   ########.fr       */
+/*   Updated: 2023/01/25 11:33:46 by gpecci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+static t_list	*ft_loop_lstmap(t_list *lst, void *(*f)(void *),
+					void (*del)(void *), t_list *new_lst)
 {
-	t_list	*new;
-	t_list	*tmp_new;
+	t_list	*tmp;
 
-	new = malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	tmp_new = new;
-	while (lst != 0 && lst->content != 0)
+	tmp = new_lst;
+	while (lst)
 	{
-		new->content = malloc(sizeof(lst->content));
-		if (new->content == 0)
-			return (0);
-		new->content = ((*f)(lst->content));
-		new->next = malloc(sizeof(t_list));
-		if (new->next == 0)
+		new_lst = ft_lstnew(f(lst->content));
+		if (!new_lst)
 		{
-			ft_lstclear(&new, del);
-			return (0);
+			ft_lstclear(&lst, del);
+			ft_lstclear(&tmp, del);
+			return (NULL);
 		}
 		lst = lst->next;
-		if (lst != 0)
-			new = new->next;
+		ft_lstadd_back(&tmp, new_lst);
 	}
-	free(new->next);
-	new->next = 0;
-	return (tmp_new);
+	return (tmp);
+}
+
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+{
+	t_list	*new_lst;
+	t_list	*tmp_lst;
+
+	if (!f || !lst)
+		return (NULL);
+	new_lst = ft_lstnew(f(lst->content));
+	if (!new_lst)
+	{
+		ft_lstclear(&lst, del);
+		return (NULL);
+	}
+	if (lst->next == NULL)
+		return (new_lst);
+	lst = lst->next;
+	tmp_lst = ft_loop_lstmap(lst, f, del, new_lst);
+	return (tmp_lst);
 }

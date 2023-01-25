@@ -6,7 +6,7 @@
 /*   By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:14:37 by gpecci            #+#    #+#             */
-/*   Updated: 2023/01/24 13:16:57 by gpecci           ###   ########.fr       */
+/*   Updated: 2023/01/25 11:24:50 by gpecci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstlast(t_list *lst)
 {
 	while (lst)
 	{
-		if(!lst->next)
+		if (!lst->next)
 			return (lst);
 		lst = lst->next;
 	}
