@@ -6,7 +6,7 @@
 #    By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/19 15:33:42 by gpecci            #+#    #+#              #
-#    Updated: 2023/01/24 23:46:00 by gpecci           ###   ########.fr        #
+#    Updated: 2023/01/25 01:09:35 by gpecci           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,21 +27,20 @@ OBJS = ${SRCS:.c=.o}
 OBJSBONUS = ${BONUS:.c=.o}
 
 CC = gcc
-RM = rm
+RM = rm -f
 
-CFLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 .c.o:
-	${CC} ${CFLAGS} -g -c $< -o ${<:.c=.o}
+	${CC} ${FLAGS} -g -c $< -o ${<:.c=.o}
 
 $(NAME): ${OBJS}
-		ar rcs ${NAME} ${OBJS}
+	ar rcs ${NAME} ${OBJS}
 
 bonus:	${OBJSBONUS}
 		ar rcs ${NAME} ${OBJSBONUS}
 
-all:
-	${NAME}
+all: ${NAME}
 
 clean:
 	${RM} ${OBJS} ${OBJSBONUS}
@@ -50,5 +49,3 @@ fclean: clean
 	${RM} ${NAME}
 
 re: fclean all
-
-.PHONY: all clean fclean re bonus

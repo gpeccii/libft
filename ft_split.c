@@ -6,28 +6,31 @@
 /*   By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 16:03:29 by gpecci            #+#    #+#             */
-/*   Updated: 2023/01/23 14:28:43 by gpecci           ###   ########.fr       */
+/*   Updated: 2023/01/25 01:18:50 by gpecci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_counter(const char *s, char c)
+static size_t	ft_counter(const char *s, char c)
 {
-	size_t	i;
 	size_t	count;
+	size_t	i;
 
-	count = 0;
 	i = 0;
+	count = 0;
 	while (s[i] == c)
 		i++;
 	while (s[i])
 	{
-		if (s[i] == c && s[i + 1] != c)
-			count++;
-		if (s[i] == c && s[i + 1] == '\0')
-			break ;
-		i++;
+		if (s[i] != c)
+		{
+			++count;
+			while (s[i] && s[i] != c)
+				++i;
+		}
+		else
+			i++;
 	}
 	return (count);
 }

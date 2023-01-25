@@ -6,13 +6,13 @@
 /*   By: gpecci <gpecci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:20:04 by gpecci            #+#    #+#             */
-/*   Updated: 2023/01/23 19:58:21 by gpecci           ###   ########.fr       */
+/*   Updated: 2023/01/25 01:19:19 by gpecci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_lenght(long nb)
+static size_t	ft_lenght(long nb)
 {
 	size_t	count;
 
